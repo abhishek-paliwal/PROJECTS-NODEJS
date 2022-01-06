@@ -16,6 +16,11 @@ function FUNC_CREATE_NODEJS_PROJECT () {
     echo "** Current PWD = $(pwd) **" ; 
     echo ">> CREATING NODE APP USING => npm init -y" ;
     npm init -y ; ## chooses all default options 
+    npx gitignore node ## downloads the node gitignore file from official github repo
+    #### creates the main app index file for editing
+    echo "/* Simple program in Node.js */" > $APPDIR/index.js ;
+    echo "console.log('Hello, World!')" >> $APPDIR/index.js ;
+    ####
     echo ">> NODE-JS app created. Contents of app folder listed below ..." ; 
     ls -al "$APPDIR" ; 
 }
