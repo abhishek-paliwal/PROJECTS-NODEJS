@@ -1,6 +1,6 @@
 #/bin/bash
 
-## PROGRAM FOR CREATING NODE JS APPLICATIONS
+## BASH PROGRAM FOR CREATING NODE JS APPLICATIONS
 
 WORKDIR="${REPO_NODEJS}" ; 
 echo ">> Current PWD => $WORKDIR" ; 
@@ -12,7 +12,7 @@ function FUNC_CREATE_NODEJS_PROJECT () {
     APPDIR="$WORKDIR/$node_app_name" ; 
     mkdir -p "$APPDIR" ;
     echo ">> CD'ing to the app folder ..." ; 
-    cd $APPDIR ; 
+    cd "$APPDIR" ; 
     echo "** Current PWD = $(pwd) **" ; 
     echo ">> CREATING NODE APP USING => npm init -y" ;
     npm init -y ; ## chooses all default options 
