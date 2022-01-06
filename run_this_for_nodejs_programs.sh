@@ -37,8 +37,8 @@ select myOptn in "Create the NodeJS app" "Run the NodeJS app locally" ;  do
     ;;
     "Run the NodeJS app locally")
     ## RUNNING THE APP LOCALLY
-    echo ">> RUNNING THE APP LOCALLY ..."  ; 
-    npm index.js ; 
+    echo ">> CHOOSE WHICH APP TO RUN LOCALLY ..."  ; 
+    node $(fd -t f -e js --search-path="$WORKDIR" | fzf) ; 
     ;;
     *)
     echo "*** Invalid entry. Breaking out. ***"
