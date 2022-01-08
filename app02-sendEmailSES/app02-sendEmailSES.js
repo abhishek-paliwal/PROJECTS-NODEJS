@@ -3,6 +3,7 @@
 let nodemailer = require("nodemailer");
 let aws = require("@aws-sdk/client-ses");
 let { defaultProvider } = require("@aws-sdk/credential-provider-node");
+const { EventEmitter } = require("nodemailer/lib/mailer");
 
 const ses = new aws.SES({
   apiVersion: "2010-12-01",
@@ -16,10 +17,25 @@ let transporter = nodemailer.createTransport({
     sendingRate: 50 // max 50 messages/second
 });
 
-emailAddresses = [ "abhiitbhu@gmail.com" , "anupama.paliwal@gmail.com" ]
+emailAddresses = [
+"abhiitbhu@gmail.com", 
+"blackowl53@mail.mggkanu.com",
+"blackowl53@mggkanu.com",
+"bluepeacock47@mggkanu.com",
+"brownelephant58@stockfotoage.com",
+"goldenunicorn67@mggkanu.com",
+"imagedcn@mggkanu.com",
+"italianturkey76@mail.stockfotoage.com",
+"italianturkey76@stockfotoage.com",
+"orangetiger65@stockfotoage.com",
+"pinkpony44@stockfotoage.com",
+"purplerabbit66@stockfotoage.com",
+"redeagle35@mggkanu.com",
+"tooya22@mggkanu.com",
+"whitedove54@mggkanu.com"
+]
 
 // Push next messages to Nodemailer
-
 emailAddresses.forEach(email_addr => {
         transporter.once('idle', () => {
         if (transporter.isIdle()) {
@@ -44,7 +60,7 @@ emailAddresses.forEach(email_addr => {
             console.log('*****************************');
             console.log(info.envelope);
             console.log('SUCCESS => ' + info.messageId);
-        }
+            }
         );    
     }
     });
