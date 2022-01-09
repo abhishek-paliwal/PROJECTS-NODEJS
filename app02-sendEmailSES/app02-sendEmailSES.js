@@ -1,5 +1,6 @@
 /* This program uses AWS SES to send emails to listed email addresses. */
 /********************************************************************/
+/********************************************************************/
 let nodemailer = require("nodemailer");
 let aws = require("@aws-sdk/client-ses");
 let { defaultProvider } = require("@aws-sdk/credential-provider-node");
@@ -17,23 +18,11 @@ let transporter = nodemailer.createTransport({
     sendingRate: 50 // max 50 messages/second
 });
 
-emailAddresses = [
-"abhiitbhu@gmail.com", 
-"blackowl53@mail.mggkanu.com",
-"blackowl53@mggkanu.com",
-"bluepeacock47@mggkanu.com",
-"brownelephant58@stockfotoage.com",
-"goldenunicorn67@mggkanu.com",
-"imagedcn@mggkanu.com",
-"italianturkey76@mail.stockfotoage.com",
-"italianturkey76@stockfotoage.com",
-"orangetiger65@stockfotoage.com",
-"pinkpony44@stockfotoage.com",
-"purplerabbit66@stockfotoage.com",
-"redeagle35@mggkanu.com",
-"tooya22@mggkanu.com",
-"whitedove54@mggkanu.com"
-]
+/********************************************************************/
+// Read email addresses from env variables
+const testEmails =  process.env.AWS_TEST_EMAILID ; 
+const emailAddresses = testEmails.split(',');
+const sendFromEMailId = process.env.AWS_SEND_FROM_EMAILID ;
 
 // Push next messages to Nodemailer
 emailAddresses.forEach(email_addr => {
@@ -42,7 +31,7 @@ emailAddresses.forEach(email_addr => {
         // then send some mail
         transporter.sendMail(
         {
-            from: "info@mygingergarlickitchen.com",
+            from: sendFromEMailId ,
             to: email_addr,
             subject: "SES test msg to " + email_addr ,
             text: "This is a test message sent from NodeJS to " +  email_addr ,
@@ -65,5 +54,5 @@ emailAddresses.forEach(email_addr => {
     }
     });
 });
-
+/********************************************************************/
 
