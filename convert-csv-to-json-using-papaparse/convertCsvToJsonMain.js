@@ -3,7 +3,7 @@ const Papa = require('papaparse');
 
 /* =========================================================== */
 // CONCATENATING ALL CSV FILES INTO ONE CSV FILE
-baseDir = process.env.REPO_NODEJS + 'convert-csv-to-json-using-papaparse/' ; 
+baseDir = process.env.REPO_NODEJS + '/convert-csv-to-json-using-papaparse/' ; 
 inDir = baseDir + 'data_input/' ; 
 outDir = baseDir + 'data_output/' ; 
 outFileFinal = outDir + 'combinedFinalFile.csv' ; 
